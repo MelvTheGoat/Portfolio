@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Risk Decisioning & Fairness Audit &mdash; Mayungbo Oluwatobi Melvyn</title>
+  <meta name="description" content="A full credit decisioning system prioritizing calibration over ranking, with reject inference correcting for approval-only observed outcomes and fairness treated as an explicit policy tradeoff.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Mayungbo<span class="dot">.</span>ml</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects.html" aria-current="page">Projects</a></li>
+        <li><a href="../writing.html">Writing</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="tags">
+          <span class="tag">Credit Risk</span><span class="tag">Calibration</span><span class="tag">Fairness</span><span class="tag">Scorecards</span>
+        </div>
+        <h1>Credit Risk Decisioning & Fairness Audit</h1>
+        <p class="subtitle">A full credit decisioning system prioritizing calibration over ranking, with reject inference correcting for approval-only observed outcomes and fairness treated as an explicit policy tradeoff.</p>
+        <div class="meta-row">
+          
+          <a class="btn" href="[FILL: github.com/MelvTheGoat/credit-risk-decisioning]" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">01</span>The problem</h2>
+        <p>A lending decision needs a true probability of default, not just a well-ranked score &mdash; expected loss is a function of a calibrated probability multiplied by exposure, and a model that ranks applicants correctly but reports overconfident probabilities produces systematically wrong loss estimates even when its AUC looks strong.</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">02</span>The result</h2>
+        <div class="result-banner">
+          <div class="eyebrow">Headline number</div>
+          <p>Benchmarked gradient boosting against a traditional WOE-binned logistic scorecard on calibration quality specifically &mdash; Brier score, reliability diagrams, expected calibration error &mdash; rather than defaulting to whichever model had the higher AUC.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">03</span>Architecture</h2>
+        <div class="flow">WOE scorecard vs. LightGBM → calibration diagnostics
+  → reject inference on approval-only outcomes → fairness audit across protected groups
+  → adverse-action reason codes → audit trail</div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">04</span>The hardest decision</h2>
+        <div class="decision-block">
+          <h4>Why calibration was prioritized over ranking metrics</h4>
+          <p>AUC and similar ranking metrics answer 'does the model order applicants correctly' &mdash; they say nothing about whether a stated 8% default probability is actually an 8% real-world rate. Expected loss calculations need the second property, not the first. A model can have excellent AUC and be badly miscalibrated, producing confidently wrong loss estimates that look statistically sound until you check them against reality.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">05</span>What the results actually showed</h2>
+        <div class="measured-box">
+          <div class="eyebrow">Measured, not assumed</div>
+          <p>Outcomes are only observed for previously <em>approved</em> applicants &mdash; a structural selection bias that a naive model trained only on approved-applicant data inherits silently. Reject inference corrections were validated against simulated data specifically because the true outcome for a rejected applicant is, by definition, never observed in real data &mdash; there is no ground truth to check the correction against outside of a simulation built to contain one.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">06</span>What's next</h2>
+        <p>Extend the fairness audit to intersectional subgroups rather than single protected attributes evaluated independently.</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">07</span>Stack</h2>
+        <div class="stack-tags">
+          <span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">scikit-learn</span><span class="tag">SHAP</span><span class="tag">WOE Scorecards</span><span class="tag">FastAPI</span><span class="tag">Docker</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="next-project">
+        <span class="eyebrow" style="margin-bottom:0;">Next project</span>
+        <a href="forecasting.html">Self-Operating Demand Forecasting Platform &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="copy">&copy; 2026 Mayungbo Oluwatobi Melvyn &mdash; built with calibration in mind.</span>
+      <div class="foot-links">
+        <a href="mailto:mlvyn.t@gmail.com">Email</a>
+        <a href="https://github.com/MelvTheGoat" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/oluwatobi-mayungbo-3a567026b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

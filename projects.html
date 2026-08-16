@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects &mdash; Mayungbo Oluwatobi Melvyn</title>
+  <meta name="description" content="Five ML and AI projects: demand forecasting, fraud detection, credit risk, causal inference, and a deployed RAG assistant.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="index.html">Mayungbo<span class="dot">.</span>ml</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tight">
+      <div class="wrap">
+        <div class="eyebrow">Five systems, one evaluation discipline</div>
+        <h1>Projects</h1>
+        <p class="lede" style="max-width:60ch;">Each page follows the same structure on purpose: the
+        problem, the headline result, the architecture, the one decision most worth defending, and
+        what the results actually showed &mdash; including the parts that didn't flatter the project.</p>
+      </div>
+    </section>
+    <section class="tight">
+      <div class="wrap">
+        <div class="project-grid full">
+        <a class="card" href="projects/rag.html" style="text-decoration:none;">
+          <div class="card-main">
+            <div class="tags">
+              <span class="tag">RAG</span><span class="tag">LLM Evaluation</span><span class="tag">Deployed</span><span class="tag">GCP</span>
+            </div>
+            <h3>Nigerian Fintech Compliance RAG Assistant</h3>
+            <p class="card-desc">A regulatory Q&A system over CBN circulars and the NDPA — hybrid retrieval, citation verification, and a refusal mechanism engineered as a first-class feature. Deployed and live.</p>
+          </div>
+          <div>
+            <div class="reading">
+              <span class="r-label">RECALL@5</span>
+              <span class="r-value">0.96</span>
+              <span class="r-axis"></span>
+            </div>
+            <div style="margin-top:10px;"><span class="card-status">LIVE</span></div>
+          </div>
+        </a>
+        <a class="card" href="projects/fraud.html" style="text-decoration:none;">
+          <div class="card-main">
+            <div class="tags">
+              <span class="tag">Deep Learning</span><span class="tag">PyTorch</span><span class="tag">Fraud</span><span class="tag">Calibration</span>
+            </div>
+            <h3>Sequence-Based Transaction Fraud Detection</h3>
+            <p class="card-desc">Three deep sequence architectures benchmarked against gradient boosting under an explicit cost model, with the sequence models' advantage isolated to robustness under drift specifically.</p>
+          </div>
+          <div>
+            <div class="reading">
+              <span class="r-label">P99 LATENCY</span>
+              <span class="r-value">5.1<span class="unit">ms</span></span>
+              <span class="r-axis"></span>
+            </div>
+            <div style="margin-top:10px;"><span class="card-link">View &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="projects/credit-risk.html" style="text-decoration:none;">
+          <div class="card-main">
+            <div class="tags">
+              <span class="tag">Credit Risk</span><span class="tag">Calibration</span><span class="tag">Fairness</span><span class="tag">Scorecards</span>
+            </div>
+            <h3>Credit Risk Decisioning & Fairness Audit</h3>
+            <p class="card-desc">A full credit decisioning system prioritizing calibration over ranking, with reject inference correcting for approval-only observed outcomes and fairness treated as an explicit policy tradeoff.</p>
+          </div>
+          <div>
+            <div class="reading">
+              <span class="r-label">PRIORITIZED METRIC</span>
+              <span class="r-value">ECE</span>
+              <span class="r-axis"></span>
+            </div>
+            <div style="margin-top:10px;"><span class="card-link">View &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="projects/forecasting.html" style="text-decoration:none;">
+          <div class="card-main">
+            <div class="tags">
+              <span class="tag">Forecasting</span><span class="tag">MLOps</span><span class="tag">Drift Monitoring</span>
+            </div>
+            <h3>Self-Operating Demand Forecasting Platform</h3>
+            <p class="card-desc">An orchestrated, end-to-end forecasting pipeline for NYC taxi zones with asymmetric cost modeling, rolling-origin backtesting, and drift-triggered retraining gated on real cost improvement.</p>
+          </div>
+          <div>
+            <div class="reading">
+              <span class="r-label">COST REDUCTION</span>
+              <span class="r-value">25<span class="unit">%</span></span>
+              <span class="r-axis"></span>
+            </div>
+            <div style="margin-top:10px;"><span class="card-link">View &rarr;</span></div>
+          </div>
+        </a>
+        <a class="card" href="projects/uplift.html" style="text-decoration:none;">
+          <div class="card-main">
+            <div class="tags">
+              <span class="tag">Causal Inference</span><span class="tag">Experiment Design</span><span class="tag">Uplift</span>
+            </div>
+            <h3>Uplift Modeling & Causal Targeting Study</h3>
+            <p class="card-desc">Heterogeneous treatment effect estimation on a randomized marketing trial, validated against simulated ground truth, with a placebo-test null result reported rather than shipped as a win.</p>
+          </div>
+          <div>
+            <div class="reading">
+              <span class="r-label">SAMPLE SIZE</span>
+              <span class="r-value">64,000</span>
+              <span class="r-axis"></span>
+            </div>
+            <div style="margin-top:10px;"><span class="card-link">View &rarr;</span></div>
+          </div>
+        </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="copy">&copy; 2026 Mayungbo Oluwatobi Melvyn &mdash; built with calibration in mind.</span>
+      <div class="foot-links">
+        <a href="mailto:mlvyn.t@gmail.com">Email</a>
+        <a href="https://github.com/MelvTheGoat" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/oluwatobi-mayungbo-3a567026b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

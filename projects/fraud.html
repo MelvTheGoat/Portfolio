@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequence-Based Transaction Fraud Detection &mdash; Mayungbo Oluwatobi Melvyn</title>
+  <meta name="description" content="Three deep sequence architectures benchmarked against gradient boosting under an explicit cost model, with the sequence models' advantage isolated to robustness under drift specifically.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Mayungbo<span class="dot">.</span>ml</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects.html" aria-current="page">Projects</a></li>
+        <li><a href="../writing.html">Writing</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="tags">
+          <span class="tag">Deep Learning</span><span class="tag">PyTorch</span><span class="tag">Fraud</span><span class="tag">Calibration</span>
+        </div>
+        <h1>Sequence-Based Transaction Fraud Detection</h1>
+        <p class="subtitle">Three deep sequence architectures benchmarked against gradient boosting under an explicit cost model, with the sequence models' advantage isolated to robustness under drift specifically.</p>
+        <div class="meta-row">
+          
+          <a class="btn" href="[FILL: github.com/MelvTheGoat/sequence-fraud-detection]" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">01</span>The problem</h2>
+        <p>Real-time transaction fraud detection needs to catch adaptive fraud patterns &mdash; card testing, account takeover, merchant compromise &mdash; while staying inside a strict latency budget and remaining honest about whether the added complexity of deep sequence models is actually earning its cost over a much simpler baseline.</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">02</span>The result</h2>
+        <div class="result-banner">
+          <div class="eyebrow">Headline number</div>
+          <p>Sequence models cut expected cost per transaction by 27% (0.0665 vs 0.0906) under an explicit cost model &mdash; but the margin came entirely from robustness to injected adversarial drift. Pre-drift, gradient boosting was marginally ahead (0.956 vs 0.950 PR-AUC). Served via ONNX Runtime at 5.1ms p99 end-to-end latency against a 50ms budget.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">03</span>Architecture</h2>
+        <div class="flow">GRU / TCN / causal Transformer (<115k params each)
+  vs LightGBM baseline → focal loss / weighted sampling → temperature + isotonic calibration
+  → ONNX export → FastAPI serving</div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">04</span>The hardest decision</h2>
+        <div class="decision-block">
+          <h4>Why the honest pre-drift number matters more than the headline 27%</h4>
+          <p>Reporting only the post-drift 27% cost reduction would have been a true but misleading framing &mdash; it implies the sequence models are simply better. The pre-drift comparison (0.956 vs 0.950 PR-AUC, effectively a tie) is what actually locates <em>why</em> they win: not raw predictive power, but robustness when the fraud pattern itself shifts. That distinction changes the real recommendation &mdash; it's an argument for the added complexity specifically in a non-stationary threat environment, not a blanket 'deep learning wins' claim.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">05</span>What the results actually showed</h2>
+        <div class="measured-box">
+          <div class="eyebrow">Measured, not assumed</div>
+          <p>Focal loss and weighted sampling, the two standard fixes for class imbalance, failed in <em>different</em> ways rather than both simply helping: focal loss degraded probability calibration (ECE 0.0063) while weighted sampling instead cost ranking quality (&minus;0.042 PR-AUC). Neither fix was free, and knowing which one costs what let calibration be corrected surgically afterward &mdash; temperature scaling and isotonic regression brought ECE down to 0.0005 &mdash; rather than accepting whichever trade-off the first technique happened to introduce.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">06</span>What's next</h2>
+        <p>Test against a wider set of injected drift patterns to check whether the robustness advantage generalizes beyond the specific drift mechanism used in evaluation.</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">07</span>Stack</h2>
+        <div class="stack-tags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">LightGBM</span><span class="tag">ONNX Runtime</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">SHAP</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="next-project">
+        <span class="eyebrow" style="margin-bottom:0;">Next project</span>
+        <a href="credit-risk.html">Credit Risk Decisioning & Fairness Audit &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="copy">&copy; 2026 Mayungbo Oluwatobi Melvyn &mdash; built with calibration in mind.</span>
+      <div class="foot-links">
+        <a href="mailto:mlvyn.t@gmail.com">Email</a>
+        <a href="https://github.com/MelvTheGoat" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/oluwatobi-mayungbo-3a567026b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Operating Demand Forecasting Platform &mdash; Mayungbo Oluwatobi Melvyn</title>
+  <meta name="description" content="An orchestrated, end-to-end forecasting pipeline for NYC taxi zones with asymmetric cost modeling, rolling-origin backtesting, and drift-triggered retraining gated on real cost improvement.">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="brand" href="../index.html">Mayungbo<span class="dot">.</span>ml</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects.html" aria-current="page">Projects</a></li>
+        <li><a href="../writing.html">Writing</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../resume.html">Resume</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section class="project-hero">
+      <div class="wrap">
+        <div class="tags">
+          <span class="tag">Forecasting</span><span class="tag">MLOps</span><span class="tag">Drift Monitoring</span>
+        </div>
+        <h1>Self-Operating Demand Forecasting Platform</h1>
+        <p class="subtitle">An orchestrated, end-to-end forecasting pipeline for NYC taxi zones with asymmetric cost modeling, rolling-origin backtesting, and drift-triggered retraining gated on real cost improvement.</p>
+        <div class="meta-row">
+          
+          <a class="btn" href="[FILL: github.com/MelvTheGoat/demand-forecasting-platform]" target="_blank" rel="noopener">View on GitHub &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">01</span>The problem</h2>
+        <p>Point forecasts and symmetric error metrics don't reflect the real cost structure of demand planning, where under-forecasting (unmet demand) and over-forecasting (idle supply) have genuinely different costs &mdash; optimizing for the wrong metric produces a forecast that's statistically accurate and operationally expensive.</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">02</span>The result</h2>
+        <div class="result-banner">
+          <div class="eyebrow">Headline number</div>
+          <p>Modeled unmet demand at 3&times; the cost of idle supply and shipped the cost-optimal quantile rather than the median, cutting expected cost 25% against an identical model optimized on a symmetric metric, and beating a seasonal-naive baseline by 32%.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">03</span>Architecture</h2>
+        <div class="flow">ingest → dbt/DuckDB transforms → rolling-origin backtest (6 folds)
+  → asymmetric cost-optimal quantile selection → drift monitoring (PSI/KS/MASE)
+  → champion/challenger promotion</div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">04</span>The hardest decision</h2>
+        <div class="decision-block">
+          <h4>Why asymmetric cost instead of MASE alone</h4>
+          <p>A model chosen purely to minimize MASE optimizes the wrong objective if the two error directions cost differently in the real system it feeds. Shipping the cost-optimal quantile &mdash; not the median, and not the metric-minimizing point forecast &mdash; means the model is trained toward the actual business objective rather than a proxy metric that happens to be convenient to optimize.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">05</span>What the results actually showed</h2>
+        <div class="measured-box">
+          <div class="eyebrow">Measured, not assumed</div>
+          <p>Automated leakage tests were built to fail the CI build if any feature reads past the forecast origin &mdash; a structural guardrail rather than a one-time manual check, because leakage in a forecasting pipeline produces backtests that look excellent and fail silently in production. Champion/challenger promotion is gated on a 2% out-of-sample cost margin specifically so a retrained model has to prove real improvement before replacing the one in production, not just look different.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">06</span>What's next</h2>
+        <p>Extend the drift-triggered retraining to detect covariate shift in the raw ingestion data itself, ahead of it surfacing in downstream forecast error.</p>
+      </div>
+    </section>
+
+    <section class="detail-section">
+      <div class="wrap">
+        <h2><span class="num">07</span>Stack</h2>
+        <div class="stack-tags">
+          <span class="tag">Python</span><span class="tag">Prefect</span><span class="tag">dbt-core</span><span class="tag">DuckDB</span><span class="tag">LightGBM</span><span class="tag">MLflow</span><span class="tag">Evidently</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="next-project">
+        <span class="eyebrow" style="margin-bottom:0;">Next project</span>
+        <a href="uplift.html">Uplift Modeling & Causal Targeting Study &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="copy">&copy; 2026 Mayungbo Oluwatobi Melvyn &mdash; built with calibration in mind.</span>
+      <div class="foot-links">
+        <a href="mailto:mlvyn.t@gmail.com">Email</a>
+        <a href="https://github.com/MelvTheGoat" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/oluwatobi-mayungbo-3a567026b" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+
+</body>
+</html>
