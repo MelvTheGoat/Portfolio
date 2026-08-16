@@ -215,7 +215,7 @@ PROJECTS = [
         "headline_value": "ECE",
         "headline_unit": "",
         "github": "https://github.com/MelvTheGoat/credit-risk-decisionin",
-        "live": None,
+        "live": "https://credit-risk-decisioning-702657773047.europe-west1.run.app/",
         "problem": (
             "A lending decision needs a true probability of default, not just a well-ranked score "
             "&mdash; expected loss is a function of a calibrated probability multiplied by exposure, "
@@ -383,7 +383,7 @@ def build_home():
         </div>
         <div class="reading-row">
           {reading('MODELS EVALUATED AGAINST', '5', 'baselines')}
-          {reading('DEPLOYED', '1', 'live system')}
+          {reading('DEPLOYED', '2', 'live system')}
           {reading('COST REDUCTION', '25&ndash;27', '%')}
         </div>
       </div>
