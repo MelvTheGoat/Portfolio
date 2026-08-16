@@ -651,7 +651,7 @@ def build_about():
     <section class="tight">
       <div class="wrap two-col">
         <div>
-          <div class="avatar-box">[FILL: real photo &mdash; a portfolio without a face reads as less trustworthy]</div>
+          <div class="avatar-box"><img src="assets/photo_2026-08-16_14-26-22.jpg" alt="{NAME}" style="width: 100%; height: auto; border-radius: 4px;"></div>
         </div>
         <div>
           <p class="lede">{summary_line()}</p>
