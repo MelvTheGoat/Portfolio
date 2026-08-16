@@ -121,7 +121,7 @@ PROJECTS = [
         "headline_label": "RECALL@5",
         "headline_value": "0.96",
         "headline_unit": "",
-        "github": "[FILL: github.com/MelvTheGoat/nigerian-fintech-compliance-rag]",
+        "github": "https://github.com/MelvTheGoat/nigerian-fintech-compliance-rag",
         "live": RAG_LIVE_URL,
         "problem": (
             "Compliance officers and engineers at Nigerian fintechs were manually cross-referencing "
@@ -167,7 +167,7 @@ PROJECTS = [
         "headline_label": "P99 LATENCY",
         "headline_value": "5.1",
         "headline_unit": "ms",
-        "github": "[FILL: github.com/MelvTheGoat/sequence-fraud-detection]",
+        "github": "https://github.com/MelvTheGoat/sequence-fraud-detection",
         "live": None,
         "problem": (
             "Real-time transaction fraud detection needs to catch adaptive fraud patterns &mdash; card "
@@ -214,7 +214,7 @@ PROJECTS = [
         "headline_label": "PRIORITIZED METRIC",
         "headline_value": "ECE",
         "headline_unit": "",
-        "github": "[FILL: github.com/MelvTheGoat/credit-risk-decisioning]",
+        "github": "https://github.com/MelvTheGoat/credit-risk-decisionin",
         "live": None,
         "problem": (
             "A lending decision needs a true probability of default, not just a well-ranked score "
@@ -257,7 +257,7 @@ PROJECTS = [
         "headline_label": "COST REDUCTION",
         "headline_value": "25",
         "headline_unit": "%",
-        "github": "[FILL: github.com/MelvTheGoat/demand-forecasting-platform]",
+        "github": "https://github.com/MelvTheGoat/demand-forecasting-platform",
         "live": None,
         "problem": (
             "Point forecasts and symmetric error metrics don't reflect the real cost structure of "
@@ -300,7 +300,7 @@ PROJECTS = [
         "headline_label": "SAMPLE SIZE",
         "headline_value": "64,000",
         "headline_unit": "",
-        "github": "[FILL: github.com/MelvTheGoat/uplift-causal-targeting]",
+        "github": "https://github.com/MelvTheGoat/uplift-causal-targeting",
         "live": None,
         "problem": (
             "Standard propensity models identify customers likely to convert &mdash; not customers who "
